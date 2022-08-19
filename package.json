@@ -1,0 +1,32 @@
+{
+  "name": "qa-assignment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean:reports": "mkdir -p cypress/reports && rm -R -f cypress/reports/* && mkdir cypress/reports/mochareports",
+    "before-test": "npm run clean:reports",
+    "headless": "cypress run -b chrome",
+    "headed": "cypress run -b chrome --headed --spec \"cypress/integration/test/functional/teamsite.spec.js\"",
+    "combine-reports": "mochawesome-merge cypress/reports/mocha/*.json > cypress/reports/mochareports/report.json",
+    "generate-report": "marge cypress/reports/mochareports/report.json -f report -o cypress/reports/mochareports -- inline",
+    "after-test": "npm run combine-reports && npm run generate-report",
+    "chrome:test": "npm run clean:reports && npm run headed || npm run combine-reports && npm run generate-report",
+    "cy:ci": "npm run clean:reports && npm run headless || npm run combine-reports && npm run generate-report"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^8.3.1",
+    "pretty-js": "^0.2.2"
+  },
+  "dependencies": {
+    "cypress-multi-reporters": "^1.4.0",
+    "mocha": "^8.3.2",
+    "mochawesome": "^6.2.2",
+    "mochawesome-merge": "^4.2.0",
+    "mochawesome-report-generator": "^5.2.0",
+    "package.json": "^2.0.1"
+  }
+}

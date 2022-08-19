@@ -1,0 +1,9 @@
+node_modules
+.idea
+plugins
+reports
+videos
+screenshot
+downloads
+package-lock.json
+teamsite-cypress.iml

@@ -1,0 +1,10 @@
+version: "3"
+services:
+  #this container will run Cypress test using Chrome browser
+  e2e-chrome:
+    image: "chrome-teamsite-cypress"
+    command: "chrome:test"
+    volumes:
+    - ./cypress/videos:/cypress-docker/cypress/videos
+    - ./cypress/reports:/cypress-docker/cypress/reports
+    - ./cypress/screenshots:/cypress-docker/cypress/screenshots
