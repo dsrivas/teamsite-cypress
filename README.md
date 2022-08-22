@@ -32,3 +32,5 @@
 
 ### Report location
     Path: cypress/reports/mochareports/report.html
+
+[![Node.js CI](https://github.com/dsrivas/teamsite-cypress/actions/workflows/node.js.yml/badge.svg)](https://github.com/dsrivas/teamsite-cypress/actions/workflows/node.js.yml)
