@@ -1,6 +1,8 @@
 ### Introduction
 #### This project is a functional automated suite for Teamsite
 
+[![Node.js CI](https://github.com/dsrivas/teamsite-cypress/actions/workflows/node.js.yml/badge.svg)](https://github.com/dsrivas/teamsite-cypress/actions/workflows/node.js.yml)
+
 ### Prerequisite
 #### The host machine must have:
     1. 'npm' package manager
@@ -32,5 +34,3 @@
 
 ### Report location
     Path: cypress/reports/mochareports/report.html
-
-[![Node.js CI](https://github.com/dsrivas/teamsite-cypress/actions/workflows/node.js.yml/badge.svg)](https://github.com/dsrivas/teamsite-cypress/actions/workflows/node.js.yml)
