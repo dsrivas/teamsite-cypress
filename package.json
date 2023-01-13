@@ -4,15 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "clean:reports": "mkdir -p cypress/reports && rm -R -f cypress/reports/* && mkdir cypress/reports/mochareports",
-    "before-test": "npm run clean:reports",
+    "clean:reports": "mkdir -p cypress/reports && rm -R -f cypress/reports/* && rm -R -f cypress/screenshots/* && mkdir cypress/reports/mochareports",
     "headless": "cypress run -b chrome",
-    "headed": "cypress run -b chrome --headed --spec \"cypress/integration/test/functional/teamsite.spec.js\"",
-    "combine-reports": "mochawesome-merge cypress/reports/mocha/*.json > cypress/reports/mochareports/report.json",
-    "generate-report": "marge cypress/reports/mochareports/report.json -f report -o cypress/reports/mochareports --inline",
-    "after-test": "npm run combine-reports && npm run generate-report",
-    "chrome:test": "npm run clean:reports && npm run headed || npm run combine-reports && npm run generate-report",
-    "cy:ci": "npm run clean:reports && npm run headless || npm run combine-reports && npm run generate-report"
+    "headed": "cypress run -b chrome --headed",
+    "merge-reports": "mochawesome-merge cypress/reports/mocha/*.json > cypress/reports/mochareports/report.json",
+    "create-html-report": "marge cypress/reports/mochareports/report.json -f report -o cypress/reports/mochareports --inline",
+    "generate-html-report": "npm run merge-reports && npm run create-html-report",
+    "chrome:test": "npm run clean:reports && npm run headed || npm run generate-html-report",
+    "cy:ci": "npm run clean:reports && npm run headless"
   },
   "keywords": [],
   "author": "",
