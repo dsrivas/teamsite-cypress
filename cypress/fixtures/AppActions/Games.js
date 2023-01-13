@@ -1,17 +1,19 @@
-import LandingPage from "../Locators/LandingPage.js"
+import GamePage from "../Locators/GamePage.js"
 
 //Reusable user actions to chain them to form e2e flow
 
 export const selectGame = (game) => {
-        cy.get(LandingPage.GAMES_LIST).contains(game).click({force: true})
+        cy.get(GamePage.GAMES_LIST).contains(game).click({force: true})
 }
 
-export const validateTabInGameDetails = (game) => {
-        selectGame(game)
-        cy.get(".tab-header:first").should('have.text', "Extended Box Score")
-        cy.get(".tab-header:last")
-            .should('have.class', "text")
-            .then(($option) => {
-                cy.get($option).click()
-            });
+export const validateTabInGameDetails = (tabNames) => {
+        var i=0;
+        cy.get(GamePage.GAMES_DET_TABS).each((item, index, list) => {
+           for(;i<=tabNames.length;) {
+               cy.wrap(item).should('include.text',tabNames[i])
+               i++;
+               break;
+           }
+        })
+        cy.contains('.boxscore-table','Jordan Poole')
 }
