@@ -25,8 +25,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-      - run: npm install package.json
-      - run: npm run build --if-present
+      - run: npm ci
       - run: npm run cy:ci
         env:
           CYPRESS_FIFA_EMAIL: ${{ secrets.CYPRESS_FIFA_EMAIL }}
