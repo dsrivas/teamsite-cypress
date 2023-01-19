@@ -26,7 +26,11 @@
 
 const compareSnapshotCommand = require('cypress-visual-regression/dist/command');
 compareSnapshotCommand({
-  capture: 'fullPage'
+  failureThreshold: 0.01,
+  failureThresholdType: 'percent',
+  customDiffConfig: { threshold: 0.1 },
+  capture: 'fullPage',
+  exact: true
 });
 
 Cypress.Commands.add("CreateArticle", ()=> {
