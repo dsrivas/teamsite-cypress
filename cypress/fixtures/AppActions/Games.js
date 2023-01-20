@@ -2,8 +2,8 @@ import GamePage from "../Locators/GamePage.js"
 
 //Reusable user actions to chain them to form e2e flow
 
-export const selectGame = (game) => {
-        cy.get(GamePage.GAMES_LIST).contains(game).click({force: true})
+export const selectGame = (team) => {
+        cy.get(GamePage.GAMES_LIST).contains(team[0]+team[1]).click({multiple:true})
 }
 
 export const validateTabInGameDetails = (tabNames) => {
@@ -25,7 +25,7 @@ export const validateDataInTab = (tabName, threshold) => {
 }
 
 export const clickTeamFromHeader = (team) => {
-    cy.get(GamePage.GAMES_HEADER_TEAMS).contains(team).click()
+    cy.get(GamePage.GAMES_HEADER_TEAMS).contains(team).click({force:true})
       .get('.text-2xl').should('have.text',team)
       .go('back')
 }
@@ -34,4 +34,10 @@ export const clickPlayerFromStats = (player) => {
     cy.get(GamePage.GAMES_TEAM_PLAYERS).contains(player).click({force:true})
       .get('.text-2xl').should('have.text',player)
       .go('back')
+}
+
+export const clickTeamStats = (team) => {
+    cy.get(GamePage.GAMES_EXTBX_TEAM_STATS).contains(team).click({force:true})
+      .get('.flex-col > label').should('include.text','Golden State Warriors Starters')
+                               .and('include.text','Golden State Warriors Bench')
 }

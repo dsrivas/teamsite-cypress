@@ -6,3 +6,4 @@ videos
 downloads
 teamsite-cypress.iml
 screenshots
+cypress/snapshots/diff/

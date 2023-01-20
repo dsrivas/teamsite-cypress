@@ -30,6 +30,7 @@ compareSnapshotCommand({
   failureThresholdType: 'percent',
   customDiffConfig: { threshold: 0.1 },
   capture: 'fullPage',
+  disableScrolling: true,
   exact: true
 });
 
