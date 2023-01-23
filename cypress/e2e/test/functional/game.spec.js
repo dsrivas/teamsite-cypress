@@ -1,6 +1,6 @@
 import {teamsiteLogin} from "../../../fixtures/AppActions/Login.js"
 import {selectGame, validateTabInGameDetails, validateDataInTab, clickTeamFromHeader
-        ,clickPlayerFromStats, clickTeamStats} from "../../../fixtures/AppActions/Games.js"
+        ,clickPlayerFromStats, clickTeamStats, teamSearch} from "../../../fixtures/AppActions/Games.js"
 
 describe('NBA Game', () => {
 
@@ -15,17 +15,20 @@ describe('NBA Game', () => {
       })
 
       it("Should validate the different tab and stats are visible under Game", () => {
+        //Search for Golder State warriors team
+        teamSearch(teams[0])
         selectGame(teams)
         validateTabInGameDetails(tabs)
         validateDataInTab('Extended Box Score', 0.3)
-        validateDataInTab('Game Breakdown', 0.49)
         validateDataInTab('Play Types', 0.30)
         validateDataInTab('Play by Play', 0.32)
+        validateDataInTab('Game Breakdown', 0.49)
         validateDataInTab('Shot Chart', 0.25)
         validateDataInTab('Lineups', 0.25)
       })
 
-      it("Should be able to navigate to Teams and Player tabs from Stats page", () => {
+      it("Should be able navigate to Teams and Player tabs from Stats page", () => {
+        teamSearch(teams[0])
         selectGame(teams)
         clickTeamStats('GoldenState')
         clickTeamFromHeader(teams[0])

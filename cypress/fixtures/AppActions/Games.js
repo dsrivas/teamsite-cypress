@@ -41,3 +41,7 @@ export const clickTeamStats = (team) => {
       .get('.flex-col > label').should('include.text','Golden State Warriors Starters')
                                .and('include.text','Golden State Warriors Bench')
 }
+
+export const teamSearch = (team) => {
+    cy.get(GamePage.GAMES_SEARCH_BOX).click({force:true}).type(team)
+}
