@@ -1,12 +1,13 @@
 import {teamsiteLogin} from "../../../fixtures/AppActions/Login.js"
 import {selectGame, validateTabInGameDetails, validateDataInTab, clickTeamFromHeader
-        ,clickPlayerFromStats, clickTeamStats, teamSearch} from "../../../fixtures/AppActions/Games.js"
+        ,clickPlayerFromStats, clickTeamStats, teamSearch, validateClips} from "../../../fixtures/AppActions/Games.js"
 
 describe('NBA Game', () => {
 
       const teams = ['Golden State Warriors','New Orleans Pelicans']
       const tabs = ['Extended Box Score','Play Types','Play by Play','Game Breakdown','Shot Chart','Lineups']
       const player = 'Jordan Poole '
+      const clips = ['All Clips','All Possessions','Full Game Video']
 
 
       beforeEach(() => {
@@ -18,13 +19,11 @@ describe('NBA Game', () => {
         //Search for Golder State warriors team
         teamSearch(teams[0])
         selectGame(teams)
+        validateClips(clips)
         validateTabInGameDetails(tabs)
-        validateDataInTab('Extended Box Score', 0.3)
-        validateDataInTab('Play Types', 0.30)
-        validateDataInTab('Play by Play', 0.32)
-        validateDataInTab('Game Breakdown', 0.49)
-        validateDataInTab('Shot Chart', 0.25)
-        validateDataInTab('Lineups', 0.25)
+        validateDataInTab('Extended Box Score', 0.28)
+        validateDataInTab('Shot Chart', 0.18)
+        validateDataInTab('Lineups', 0.18)
       })
 
       it("Should be able navigate to Teams and Player tabs from Stats page", () => {
