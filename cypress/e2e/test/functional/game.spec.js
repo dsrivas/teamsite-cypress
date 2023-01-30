@@ -17,17 +17,17 @@ describe('NBA Game', () => {
 
       it("Should validate the different tab and stats are visible under Game", () => {
         //Search for Golder State warriors team
-        teamSearch(teams[0])
+        teamSearch(teams[1])
         selectGame(teams)
         validateClips(clips)
         validateTabInGameDetails(tabs)
-        validateDataInTab('Extended Box Score', 0.28)
+        validateDataInTab('Extended Box Score', 0.30)
         validateDataInTab('Shot Chart', 0.18)
-        validateDataInTab('Lineups', 0.18)
+        validateDataInTab('Lineups', 0.25)
       })
 
       it("Should be able navigate to Teams and Player tabs from Stats page", () => {
-        teamSearch(teams[0])
+        teamSearch(teams[1])
         selectGame(teams)
         clickTeamStats('GoldenState')
         clickTeamFromHeader(teams[0])

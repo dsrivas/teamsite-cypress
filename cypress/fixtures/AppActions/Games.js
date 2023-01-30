@@ -20,7 +20,7 @@ export const validateTabInGameDetails = (tabNames) => {
 export const validateDataInTab = (tabName, threshold) => {
         cy.get(GamePage.GAMES_DET_TABS).contains(tabName).then(($elem) => {
               cy.wrap($elem).click({force: true}).wait(6000)
-              cy.compareSnapshot(tabName, threshold)
+              cy.get("[header='"+tabName+"']").compareSnapshot(tabName, threshold)
         })
 }
 
