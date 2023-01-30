@@ -28,5 +28,5 @@ jobs:
       - run: npm ci
       - run: npm run cy:ci
         env:
-          CYPRESS_FIFA_EMAIL: ${{ secrets.CYPRESS_FIFA_EMAIL }}
-          CYPRESS_FIFA_PASSWORD: ${{ secrets.CYPRESS_FIFA_PASSWORD }}
+          CYPRESS_USERNAME_TEAM: ${{ secrets.CYPRESS_USERNAME_TEAM }}
+          CYPRESS_PASSWORD_TEAM: ${{ secrets.CYPRESS_PASSWORD_TEAM }}
