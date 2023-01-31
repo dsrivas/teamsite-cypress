@@ -1,4 +1,5 @@
 import GamePage from "../Locators/GamePage.js"
+import GamesFilter from "../Locators/GamesFilter.js"
 
 //Reusable user actions to chain them to form e2e flow
 
@@ -56,5 +57,23 @@ export const validateClips = (links) => {
            i++;
            break;
         }
+    })
+}
+
+export const validateFutureGames = (teamA) => {
+    cy.get(GamePage.GAMES_LIST).contains(teamA).then(($elem)=>{
+        cy.wrap($elem).parents('.table-row-hoverable').should('include.text','Future game (coming soon)')
+    })
+}
+
+export const selectFilters = (league, season) => {
+    selectFilter('League:', league)
+    selectFilter('Season:', season)
+}
+
+export const selectFilter = (item, value) => {
+    cy.wait(6000).get(GamesFilter.GAME_FILTER_COMBOS).contains(item).then(($elem)=> {
+        cy.wrap($elem).parent().find("[griditemheightclass='h-full min-h-3']").dblclick()
+        cy.get(GamesFilter.GAMES_FILTER_VAL_OPTIONS).contains(value).click({force:true})
     })
 }
