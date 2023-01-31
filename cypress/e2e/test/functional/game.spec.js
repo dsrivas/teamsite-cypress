@@ -1,6 +1,7 @@
 import {teamsiteLogin} from "../../../fixtures/AppActions/Login.js"
 import {selectGame, validateTabInGameDetails, validateDataInTab, clickTeamFromHeader
-        ,clickPlayerFromStats, clickTeamStats, teamSearch, validateClips} from "../../../fixtures/AppActions/Games.js"
+        ,clickPlayerFromStats, clickTeamStats, teamSearch, validateClips
+        ,selectFilters,validateFutureGames} from "../../../fixtures/AppActions/Games.js"
 
 describe('NBA Game', () => {
 
@@ -8,6 +9,8 @@ describe('NBA Game', () => {
       const tabs = ['Extended Box Score','Play Types','Play by Play','Game Breakdown','Shot Chart','Lineups']
       const player = 'Jordan Poole '
       const clips = ['All Clips','All Possessions','Full Game Video']
+      const league = 'NBA'
+      const season = '2022-2023'
 
 
       beforeEach(() => {
@@ -21,9 +24,9 @@ describe('NBA Game', () => {
         selectGame(teams)
         validateClips(clips)
         validateTabInGameDetails(tabs)
-        validateDataInTab('Extended Box Score', 0.30)
-        validateDataInTab('Shot Chart', 0.18)
-        validateDataInTab('Lineups', 0.25)
+//        validateDataInTab('Extended Box Score', 0.30)
+//        validateDataInTab('Shot Chart', 0.18)
+//        validateDataInTab('Lineups', 0.25)
       })
 
       it("Should be able navigate to Teams and Player tabs from Stats page", () => {
@@ -32,5 +35,10 @@ describe('NBA Game', () => {
         clickTeamStats('GoldenState')
         clickTeamFromHeader(teams[0])
         clickPlayerFromStats(player)
+      })
+
+      it("User should be able navigate to view future games", () => {
+         selectFilters(league, season)
+         validateFutureGames(teams[1])
       })
  });

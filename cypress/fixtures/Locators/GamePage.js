@@ -9,5 +9,6 @@ module.exports = {
     GAMES_HEADER_TXT_LINKS: '.ts-video-links .ts-playlist-link',
     GAMES_VIDEO_PLAYER_BTNS: '.justify-end',
     GAMES_TEAM_PLAYERS: ".text-link",
-    GAMES_EXTBX_TEAM_STATS: ".pill-btn"
+    GAMES_EXTBX_TEAM_STATS: ".pill-btn",
+    GAMES_SHOW_FUTURE: '.justify-between > button'
 }

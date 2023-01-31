@@ -17,4 +17,11 @@ describe('NBA Game', () => {
         addMoreStat(stat)
         removeStat(stat)
     })
+
+    it('User should be able to validate that Future comparison report and add/remove more stats', ()=>{
+        openAnalyticsPage('Comparison')
+        viewComparisonReport(teams[0],teams[1])
+        addMoreStat(stat)
+        removeStat(stat)
+    })
 })
