@@ -11,14 +11,14 @@ describe('NBA Game', () => {
        teamsiteLogin(Cypress.env('USERNAME_TEAM'),Cypress.env('PASSWORD_TEAM'))
     })
 
-//    it('User should be able to validate comparison report and add/remove more stats', ()=>{
-//        openAnalyticsPage('Comparison')
-//        viewComparisonReport(teams[0],teams[1])
-//        addMoreStat(stat)
-//        removeStat(stat)
-//    })
+    it('User should be able to validate comparison report and add/remove more stats', ()=>{
+        openAnalyticsPage('Comparison')
+        viewComparisonReport(teams[0],teams[1])
+        addMoreStat(stat)
+        removeStat(stat)
+    })
 
-    it('User should be able to validate stat changes based on events selection', ()=>{
+    it('User should be able to validate stat changes based on Possessions events selection', ()=>{
         openAnalyticsPage('Comparison')
         viewComparisonReport(teams[0],teams[1])
         validateDataWithHeaderEvents('Possessions:')
