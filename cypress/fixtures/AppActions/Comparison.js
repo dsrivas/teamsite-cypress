@@ -22,3 +22,14 @@ export const removeStat = (statName) => {
         cy.wrap($elem).click().should('not.exist')
       })
 }
+
+export const selectHeaderEvent = (event) => {
+    cy.get("[header='"+event+"']").find('.option-toggle .ng-valid').click({force:true})
+}
+
+export const validateDataWithHeaderEvents = (event) => {
+    selectHeaderEvent(event)
+    cy.wait(4000).get('.w-full .mt-10').contains('Possessions').then(($elem)=> {
+        cy.wrap($elem).parents('.items-center').compareSnapshot('Possessions', 0.18)
+    })
+}
