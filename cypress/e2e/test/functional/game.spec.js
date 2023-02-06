@@ -18,24 +18,21 @@ describe('NBA Game', () => {
         teamsiteLogin(Cypress.env('USERNAME_TEAM'),Cypress.env('PASSWORD_TEAM'))
       })
 
-//      it("Should validate the different tab and stats are visible under Game", () => {
-//        //Search for Golder State warriors team
-//        teamSearch(teams[1])
-//        selectGame(teams)
-//        validateClips(clips)
-//        validateTabInGameDetails(tabs)
-////        validateDataInTab('Extended Box Score', 0.30)
-////        validateDataInTab('Shot Chart', 0.18)
-////        validateDataInTab('Lineups', 0.25)
-//      })
-//
-//      it("Should be able navigate to Teams and Player tabs from Stats page", () => {
-//        teamSearch(teams[1])
-//        selectGame(teams)
-//        clickTeamStats('GoldenState')
-//        clickTeamFromHeader(teams[0])
-//        clickPlayerFromStats(player)
-//      })
+      it("Should validate the different tab and stats are visible under Game", () => {
+        //Search for Golder State warriors team
+        teamSearch(teams[1])
+        selectGame(teams)
+        validateClips(clips)
+        validateTabInGameDetails(tabs)
+      })
+
+      it("Should be able navigate to Teams and Player tabs from Stats page", () => {
+        teamSearch(teams[1])
+        selectGame(teams)
+        clickTeamStats('GoldenState')
+        clickTeamFromHeader(teams[0])
+        clickPlayerFromStats(player)
+      })
 
       it("User should be able navigate to view future games", () => {
          selectFilters(league, season)
