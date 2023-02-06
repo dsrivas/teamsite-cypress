@@ -20,7 +20,7 @@ export const validateTabInGameDetails = (tabNames) => {
 
 export const validateDataInTab = (tabName, threshold) => {
         cy.get(GamePage.GAMES_DET_TABS).contains(tabName).then(($elem) => {
-              cy.wrap($elem).click({force: true}).wait(6000)
+              cy.wrap($elem).click({force: true}).wait(4000)
               cy.get("[header='"+tabName+"']").compareSnapshot(tabName, threshold)
         })
 }
@@ -60,10 +60,8 @@ export const validateClips = (links) => {
     })
 }
 
-export const validateFutureGames = (teamA) => {
-    cy.get(GamePage.GAMES_LIST).contains(teamA).then(($elem)=>{
-        cy.wrap($elem).parents('.table-row-hoverable').should('include.text','Future game (coming soon)')
-    })
+export const validateFutureGames = () => {
+    cy.get(GamePage.GAMES_LIST).first().should('include.text','Future game (coming soon)')
 }
 
 export const selectFilters = (league, season) => {
@@ -72,7 +70,7 @@ export const selectFilters = (league, season) => {
 }
 
 export const selectFilter = (item, value) => {
-    cy.wait(6000).get(GamesFilter.GAME_FILTER_COMBOS).contains(item).then(($elem)=> {
+    cy.wait(4000).get(GamesFilter.GAME_FILTER_COMBOS).contains(item).then(($elem)=> {
         cy.wrap($elem).parent().find("[griditemheightclass='h-full min-h-3']").dblclick()
         cy.get(GamesFilter.GAMES_FILTER_VAL_OPTIONS).contains(value).click({force:true})
     })

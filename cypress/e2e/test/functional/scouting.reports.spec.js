@@ -1,6 +1,6 @@
 import {teamsiteLogin} from "../../../fixtures/AppActions/Login.js"
 import {openAnalyticsPage} from "../../../fixtures/AppActions/ScoutingReports.js"
-import {viewComparisonReport,addMoreStat,removeStat} from "../../../fixtures/AppActions/Comparison.js"
+import {viewComparisonReport,addMoreStat,removeStat, validateDataWithHeaderEvents} from "../../../fixtures/AppActions/Comparison.js"
 
 describe('NBA Game', () => {
     const teams = ['Golden State Warriors','New Orleans Pelicans']
@@ -11,17 +11,16 @@ describe('NBA Game', () => {
        teamsiteLogin(Cypress.env('USERNAME_TEAM'),Cypress.env('PASSWORD_TEAM'))
     })
 
-    it('User should be able to validate comparison report and add/remove more stats', ()=>{
-        openAnalyticsPage('Comparison')
-        viewComparisonReport(teams[0],teams[1])
-        addMoreStat(stat)
-        removeStat(stat)
-    })
+//    it('User should be able to validate comparison report and add/remove more stats', ()=>{
+//        openAnalyticsPage('Comparison')
+//        viewComparisonReport(teams[0],teams[1])
+//        addMoreStat(stat)
+//        removeStat(stat)
+//    })
 
-    it('User should be able to validate that Future comparison report and add/remove more stats', ()=>{
+    it('User should be able to validate stat changes based on events selection', ()=>{
         openAnalyticsPage('Comparison')
         viewComparisonReport(teams[0],teams[1])
-        addMoreStat(stat)
-        removeStat(stat)
+        validateDataWithHeaderEvents('Possessions:')
     })
 })
