@@ -12,12 +12,12 @@ export const viewComparisonReport = (teamA,teamB) => {
 
 export const addMoreStat = (statName) => {
     cy.get(Comparison.COM_ADD_STATS).click()
-      .get(Comparison.COM_ADD_STATS_ITEMS).contains(statName).click()
+      .get(Comparison.COM_ADD_STATS_ITEMS).contains(statName).click({force:true})
       .get(Comparison.COM_STATS_GRID).should('include.text',statName)
 }
 
 export const removeStat = (statName) => {
-    cy.get(Comparison.COM_ADD_STATS).click()
+    cy.get(Comparison.COM_ADD_STATS).click({force:true})
       .get(Comparison.COM_ADD_STATS_ITEMS).contains(statName).then(($elem)=>{
         cy.wrap($elem).click().should('not.exist')
       })
