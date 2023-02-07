@@ -12,12 +12,12 @@ export const viewComparisonReport = (teamA,teamB) => {
 
 export const addMoreStat = (statName) => {
     cy.get(Comparison.COM_ADD_STATS).click()
-      .get(Comparison.COM_ADD_STATS_ITEMS).contains(statName).click()
+      .get(Comparison.COM_ADD_STATS_ITEMS).contains(statName).click({force:true})
       .get(Comparison.COM_STATS_GRID).should('include.text',statName)
 }
 
 export const removeStat = (statName) => {
-    cy.get(Comparison.COM_ADD_STATS).click()
+    cy.get(Comparison.COM_ADD_STATS).click({force:true})
       .get(Comparison.COM_ADD_STATS_ITEMS).contains(statName).then(($elem)=>{
         cy.wrap($elem).click().should('not.exist')
       })
@@ -29,7 +29,7 @@ export const selectHeaderEvent = (event) => {
 
 export const validateDataWithHeaderEvents = (event) => {
     selectHeaderEvent(event)
-    cy.wait(4000).get('.w-full .mt-10').contains('Possessions').then(($elem)=> {
+    cy.wait(4000).get(Comparison.COM_STATS_GRID).contains('Possessions').then(($elem)=> {
         cy.wrap($elem).parents('.items-center').compareSnapshot('Possessions', 0.18)
     })
 }
