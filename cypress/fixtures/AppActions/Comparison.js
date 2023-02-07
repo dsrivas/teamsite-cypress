@@ -29,7 +29,7 @@ export const selectHeaderEvent = (event) => {
 
 export const validateDataWithHeaderEvents = (event) => {
     selectHeaderEvent(event)
-    cy.wait(4000).get('.w-full .mt-10').contains('Possessions').then(($elem)=> {
+    cy.wait(4000).get(Comparison.COM_STATS_GRID).contains('Possessions').then(($elem)=> {
         cy.wrap($elem).parents('.items-center').compareSnapshot('Possessions', 0.18)
     })
 }
