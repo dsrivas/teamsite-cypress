@@ -2,7 +2,7 @@ import {teamsiteLogin} from "../../../fixtures/AppActions/Login.js"
 import {openAnalyticsPage} from "../../../fixtures/AppActions/ScoutingReports.js"
 import {viewComparisonReport,addMoreStat,removeStat, validateDataWithHeaderEvents} from "../../../fixtures/AppActions/Comparison.js"
 
-describe('NBA Game', () => {
+describe('Analytics -> Comparison check ', () => {
     const teams = ['Golden State Warriors','New Orleans Pelicans']
     const stat = 'Steals'
 
