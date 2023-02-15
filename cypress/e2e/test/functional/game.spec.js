@@ -3,7 +3,7 @@ import {selectGame, validateTabInGameDetails, validateDataInTab, clickTeamFromHe
         ,clickPlayerFromStats, clickTeamStats, teamSearch, validateClips
         ,selectFilters,validateFutureGames} from "../../../fixtures/AppActions/Games.js"
 
-describe('NBA Game', () => {
+describe('Game Tab overview check', () => {
 
       const teams = ['Golden State Warriors','New Orleans Pelicans']
       const tabs = ['Extended Box Score','Play Types','Play by Play','Game Breakdown','Shot Chart','Lineups']
