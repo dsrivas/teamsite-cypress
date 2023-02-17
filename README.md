@@ -11,7 +11,7 @@
 ## How to setup the project ?
 
 ### 1. Clone the repo
-    git clone https://github.com/dsrivas/cypress-poc.git
+    git clone git@github.com:dsrivas/teamsite-cypress.git
 
 ### 2. Run this command. This command should install all project dependecies listed in 'Package.json'
     npm install package.json
