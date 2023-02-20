@@ -1,5 +1,5 @@
 import {teamsiteLogin} from "../../../fixtures/AppActions/Login.js"
-import {openAnalyticsPage} from "../../../fixtures/AppActions/ScoutingReports.js"
+import {openAnalyticsPage,showScoutingReport,validateScoutingReport} from "../../../fixtures/AppActions/ScoutingReports.js"
 import {viewComparisonReport,addMoreStat,removeStat, validateDataWithHeaderEvents} from "../../../fixtures/AppActions/Comparison.js"
 
 describe('Analytics -> Comparison check ', () => {
@@ -22,5 +22,11 @@ describe('Analytics -> Comparison check ', () => {
         openAnalyticsPage('Comparison')
         viewComparisonReport(teams[0],teams[1])
         validateDataWithHeaderEvents('Possessions:')
+    })
+
+    it('User should be able to generate scouting report and validate data with events selection', ()=>{
+        openAnalyticsPage('Scouting Reports')
+        showScoutingReport(teams[0],teams[1])
+        validateScoutingReport("Summary")
     })
 })
