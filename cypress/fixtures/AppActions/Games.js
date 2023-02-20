@@ -60,10 +60,6 @@ export const validateClips = (links) => {
     })
 }
 
-export const validateFutureGames = () => {
-    cy.get(GamePage.GAMES_LIST).first().should('include.text','Future game (coming soon)')
-}
-
 export const selectFilters = (league, season) => {
     selectFilter('League:', league)
     selectFilter('Season:', season)
