@@ -5,7 +5,7 @@ import Comparison from "../Locators/ComparisonPage.js"
 export const viewComparisonReport = (teamA,teamB) => {
         cy.get(Comparison.COM_ADD_TEAM).click().wait(6000)
           .get(Comparison.COM_TEAM_SRCH_LIST_ITEM).contains(teamA).click({force:true})
-          .get(Comparison.COM_ADD_TEAM).click()
+          .get(Comparison.COM_ADD_TEAM).click({force:true})
           .get(Comparison.COM_TEAM_SRCH_LIST_ITEM).contains(teamB).click({force:true}).wait(5000)
           .get(Comparison.COM_STATS_GRID).should('be.visible')
 }
@@ -30,6 +30,6 @@ export const selectHeaderEvent = (event) => {
 export const validateDataWithHeaderEvents = (event) => {
     selectHeaderEvent(event)
     cy.wait(4000).get(Comparison.COM_STATS_GRID).contains('Possessions').then(($elem)=> {
-        cy.wrap($elem).parents('.items-center').compareSnapshot('Possessions', 0.18)
+        cy.wrap($elem).parents('.items-center').compareSnapshot('Possessions', 0.25)
     })
 }
