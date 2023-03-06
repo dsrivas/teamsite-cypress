@@ -33,4 +33,9 @@ describe('Game Tab overview check', () => {
         clickTeamFromHeader(teams[0])
         clickPlayerFromStats(player)
       })
+
+      it("User should be able navigate to view future games", () => {
+        selectFilters(league, season)
+        validateFutureGames()
+      })
  });

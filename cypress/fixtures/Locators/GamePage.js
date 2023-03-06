@@ -2,7 +2,7 @@
 
 module.exports = {
     GAMES_HEADER_TABS: ".inline-block .text-white",
-    GAMES_SEARCH_BOX: "[placeholder='Search within results...']",
+    GAMES_SEARCH_BOX: ".inline-block .text-sm",
     GAMES_LIST : ".table-row-hoverable",
     GAMES_DET_TABS: ".tab-header .select-none",
     GAMES_HEADER_TEAMS: ".ts-team-grid-area",

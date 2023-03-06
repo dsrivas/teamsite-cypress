@@ -44,7 +44,7 @@ export const clickTeamStats = (team) => {
 }
 
 export const teamSearch = (team) => {
-    cy.get(GamePage.GAMES_SEARCH_BOX).click({force:true}).type(team)
+    cy.get(GamePage.GAMES_SEARCH_BOX).click({force:true}).type(team,{force:true})
 }
 
 export const validateClips = (links) => {
@@ -63,6 +63,10 @@ export const validateClips = (links) => {
 export const selectFilters = (league, season) => {
     selectFilter('League:', league)
     selectFilter('Season:', season)
+}
+
+export const validateFutureGames = () => {
+    cy.get(GamePage.GAMES_LIST).first().should('include.text','Future game (coming soon)')
 }
 
 export const selectFilter = (item, value) => {
