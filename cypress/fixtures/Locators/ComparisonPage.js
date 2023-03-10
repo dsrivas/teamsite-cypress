@@ -2,6 +2,8 @@
 
 module.exports = {
     COM_TEAM_SRCH : ".ts-search-container",
+    COM_SELECT_FILTER: ".ng-select-container",
+    COM_SELECT_FILTER_OPT: ".ng-option-label",
     COM_ADD_TEAM : ".add-new-entity",
     COM_TEAM_SRCH_LIST_ITEM : ".flex-col",
     COM_STATS_GRID : ".teamsite .mt-10", //[tableid='comparison-stats-table'"
