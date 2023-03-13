@@ -1,10 +1,13 @@
 import {teamsiteLogin} from "../../../fixtures/AppActions/Login.js"
-import {openAnalyticsPage,showScoutingReport,validateScoutingReport} from "../../../fixtures/AppActions/ScoutingReports.js"
-import {viewComparisonReport,addMoreStat,removeStat, validateDataWithHeaderEvents} from "../../../fixtures/AppActions/Comparison.js"
+import {openAnalyticsPage, showScoutingReport, validateScoutingReport} from "../../../fixtures/AppActions/ScoutingReports.js"
+import {viewComparisonReport, addMoreStat, removeStat, selectTeamFilter, validateDataWithHeaderEvents} from "../../../fixtures/AppActions/Comparison.js"
 
 describe('Analytics -> Comparison check ', () => {
     const teams = ['Golden State Warriors','New Orleans Pelicans']
     const stat = 'Steals'
+    const league = 'NBA'
+    const season = '2021-2022'
+    const competition = 'Pre-Season'
 
     beforeEach(() => {
        cy.visit(Cypress.env('URL'))
@@ -20,6 +23,9 @@ describe('Analytics -> Comparison check ', () => {
 
     it('User should be able to validate stat changes based on Possessions events selection', ()=>{
         openAnalyticsPage('Comparison')
+        selectTeamFilter('League',league)
+        selectTeamFilter('Season',season)
+        selectTeamFilter('Competition',competition)
         viewComparisonReport(teams[0],teams[1])
         validateDataWithHeaderEvents('Possessions:')
     })

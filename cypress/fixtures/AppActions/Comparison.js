@@ -33,3 +33,10 @@ export const validateDataWithHeaderEvents = (event) => {
         cy.wrap($elem).parents('.items-center').compareSnapshot('Possessions', 0.25)
     })
 }
+
+export const selectTeamFilter = (filter, option) => {
+    cy.get('.mr-4').contains(filter).then(($elem) => {
+        cy.wrap($elem).parent().find(Comparison.COM_SELECT_FILTER).click()
+        cy.get(Comparison.COM_SELECT_FILTER_OPT).contains(option).click()
+    })
+}
