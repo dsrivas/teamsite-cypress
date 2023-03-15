@@ -37,6 +37,6 @@ export const validateDataWithHeaderEvents = (event) => {
 export const selectTeamFilter = (filter, option) => {
     cy.get('.mr-4').contains(filter).then(($elem) => {
         cy.wrap($elem).parent().find(Comparison.COM_SELECT_FILTER).click()
-        cy.get(Comparison.COM_SELECT_FILTER_OPT).contains(option).click()
+        cy.get(Comparison.COM_SELECT_FILTER_OPT).contains(option).click({multiple:true})
     })
 }
