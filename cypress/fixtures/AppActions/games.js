@@ -1,5 +1,5 @@
-import GamePage from "../Locators/GamePage.js"
-import GamesFilter from "../Locators/GamesFilter.js"
+import GamePage from "../Locators/game-page.js"
+import GamesFilter from "../Locators/games-filter.js"
 
 //Reusable user actions to chain them to form e2e flow
 

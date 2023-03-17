@@ -1,5 +1,5 @@
-import Header from "../Locators/Header.js"
-import Comparison from "../Locators/ComparisonPage.js"
+import Header from "../Locators/header.js"
+import Comparison from "../Locators/comparison-page.js"
 
 //Reusable user actions to chain them to form e2e flow
 export const viewComparisonReport = (teamA,teamB) => {
@@ -37,6 +37,6 @@ export const validateDataWithHeaderEvents = (event) => {
 export const selectTeamFilter = (filter, option) => {
     cy.wait(3000).get('.mr-4').contains(filter).then(($elem) => {
         cy.wrap($elem).parent().find(Comparison.COM_SELECT_FILTER).click()
-        cy.get(Comparison.COM_SELECT_FILTER_OPT).contains(option).wait(3000).click({multiple:true})
+        cy.get(Comparison.COM_SELECT_FILTER_OPT).contains(option).wait(3000).click()
     })
 }

@@ -1,7 +1,7 @@
-import {teamsiteLogin} from "../../../fixtures/AppActions/Login.js"
+import {teamsiteLogin} from "../../../fixtures/AppActions/login.js"
 import {selectGame, validateTabInGameDetails, validateDataInTab, clickTeamFromHeader
         ,clickPlayerFromStats, clickTeamStats, teamSearch, validateClips
-        ,selectFilters,validateFutureGames} from "../../../fixtures/AppActions/Games.js"
+        ,selectFilters,validateFutureGames} from "../../../fixtures/AppActions/games.js"
 
 describe('Game Tab overview check', () => {
 

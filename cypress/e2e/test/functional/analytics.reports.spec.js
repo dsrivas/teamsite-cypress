@@ -1,6 +1,6 @@
-import {teamsiteLogin} from "../../../fixtures/AppActions/Login.js"
-import {openAnalyticsPage, showScoutingReport, validateScoutingReport} from "../../../fixtures/AppActions/ScoutingReports.js"
-import {viewComparisonReport, addMoreStat, removeStat, selectTeamFilter, validateDataWithHeaderEvents} from "../../../fixtures/AppActions/Comparison.js"
+import {teamsiteLogin} from "../../../fixtures/AppActions/login.js"
+import {openAnalyticsPage, showScoutingReport, validateScoutingReport} from "../../../fixtures/AppActions/scouting-reports.js"
+import {viewComparisonReport, addMoreStat, removeStat, selectTeamFilter, validateDataWithHeaderEvents} from "../../../fixtures/AppActions/comparison.js"
 
 describe('Analytics -> Comparison check ', () => {
     const teams = ['Golden State Warriors','New Orleans Pelicans']
