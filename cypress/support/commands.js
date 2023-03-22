@@ -61,5 +61,5 @@ Cypress.Commands.add("CreateArticle", ()=> {
 })
 
 Cypress.Commands.add("clickTab", (tabname)=> {
-    cy.get('.inline-block').contains(tabname).click()
+    cy.get('.inline-block').contains(tabname).click({force:true})
 })

@@ -1,4 +1,4 @@
-import Login from "../Locators/Login.js"
+import Login from "../Locators/login.js"
 
 export const teamsiteLogin = (username,password) => {
         cy.get(Login.LOGIN_USERNAME_TXT).click().type(username)

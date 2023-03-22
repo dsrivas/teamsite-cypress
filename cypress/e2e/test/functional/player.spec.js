@@ -16,7 +16,7 @@ describe('Player tab overview check', () => {
       it("Should be able navigate and view Player stats page", () => {
          cy.clickTab('Player')
          playerSearch(player)
-         cy.clickTab('Play Types')
+         cy.wait(4000).clickTab('Play Types')
          expandStats('Play Types','P&R Ball Handler')
          validateStats('Play Types')
          validateStats('Overall Drive Direction')
