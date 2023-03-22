@@ -59,3 +59,7 @@ Cypress.Commands.add("CreateArticle", ()=> {
                 expect(article.slug).to.include('newarticle')
             })
 })
+
+Cypress.Commands.add("clickTab", (tabname)=> {
+    cy.get('.inline-block').contains(tabname).click({force:true})
+})

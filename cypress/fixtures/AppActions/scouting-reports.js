@@ -1,5 +1,5 @@
-import Header from "../Locators/Header.js"
-import Scouting from "../Locators/ScoutingPage.js"
+import Header from "../Locators/header.js"
+import Scouting from "../Locators/scouting-page.js"
 
 //Reusable user actions to chain them to form e2e flow
 export const openAnalyticsPage = (page) => {
