@@ -4,8 +4,9 @@ import {playerSearch, expandStats, validateStats} from "../../../fixtures/AppAct
 
 describe('Player tab overview check', () => {
 
-      const teams = ['Golden State Warriors','New Orleans Pelicans']
       const player = 'Precious Achiuwa'
+      const playTypes = ['P&R Ball Handler - Overall','Left P&R', 'High P&R', 'Right P&R']
+      const overallDriveDirection = ['Drives Left','Drives Right','Drives Straight']
 
 
       beforeEach(() => {
@@ -18,8 +19,8 @@ describe('Player tab overview check', () => {
          playerSearch(player)
          cy.wait(4000).clickTab('Play Types')
          expandStats('Play Types','P&R Ball Handler')
-         validateStats('Play Types')
-         validateStats('Overall Drive Direction')
+         validateStats(playTypes)
+         validateStats(overallDriveDirection)
       })
 
  })

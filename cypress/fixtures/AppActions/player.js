@@ -13,5 +13,7 @@ export const expandStats = (section, stats) => {
 }
 
 export const validateStats = (stats) => {
-    cy.get('.text-section-headline').contains(stats).compareSnapshot(stats, 0.18)
+    stats.forEach((item) => {
+        cy.get(Player.PLAYER_DET_TAB_ROW).should('include.text', item)
+    })
 }
