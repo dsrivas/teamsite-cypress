@@ -1,6 +1,6 @@
 import {teamsiteLogin} from "../../../fixtures/AppActions/login.js"
 import {clickTab} from "../../../support/commands.js"
-import {playerSearch, expandStats, validateStats} from "../../../fixtures/AppActions/player.js"
+import {playerSelect, playerSearch, expandStats, validateStats, selectClip, validateClipReplay} from "../../../fixtures/AppActions/player.js"
 
 describe('Player tab overview check', () => {
 
@@ -20,7 +20,7 @@ describe('Player tab overview check', () => {
 
       it("Should be able to navigate and view Player stats i.e. Overall, Play Types, Shot Types", () => {
          cy.clickTab('Player')
-         playerSearch(player)
+         playerSelect(player)
          validateStats(overall)
          cy.wait(4000).clickTab('Play Types')
          expandStats('Play Types','P&R Ball Handler')
@@ -28,5 +28,12 @@ describe('Player tab overview check', () => {
          validateStats(overallDriveDirection)
          cy.wait(4000).clickTab('Shot Types')
          validateStats(shotTypes)
+      })
+
+      it("Should be able to search and play clip from Players page", () => {
+         cy.clickTab('Player')
+         playerSearch(player)
+         selectClip('132')
+         validateClipReplay()
       })
  })
