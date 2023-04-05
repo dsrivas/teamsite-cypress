@@ -1,6 +1,6 @@
 import {teamsiteLogin} from "../../../fixtures/AppActions/login.js"
 import {clickTab} from "../../../support/commands.js"
-import {playerSelect, playerSearch, expandStats, validateStats, selectClip, validateClipReplay} from "../../../fixtures/AppActions/player.js"
+import {playerSelect, playerSearch, expandStats, validateStats, selectValidateClip} from "../../../fixtures/AppActions/player.js"
 
 describe('Player tab overview check', () => {
 
@@ -33,7 +33,6 @@ describe('Player tab overview check', () => {
       it("Should be able to search and play clip from Players page", () => {
          cy.clickTab('Player')
          playerSearch(player)
-         selectClip('132')
-         validateClipReplay()
+         selectValidateClip('132')
       })
  })

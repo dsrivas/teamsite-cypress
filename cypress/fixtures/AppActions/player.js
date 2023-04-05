@@ -22,13 +22,11 @@ export const validateStats = (stats) => {
     })
 }
 
-export const selectClip = (clipPos) => {
+export const selectValidateClip = (clipPos) => {
     cy.get(Player.PLAYER_TABLE_ROW).contains(clipPos).then(($elem) => {
+        cy.wrap($elem).should('have.attr', 'href')
+                      .should('not.be.empty')
         cy.wrap($elem).click()
     })
-    cy.get('[type="button"]').contains('OK').click()
-}
-
-export const validateClipReplay = () => {
-    cy.compareSnapshot("Web Editor",0.18)
+    cy.get('[type="button"]').contains('Cancel').click()
 }
