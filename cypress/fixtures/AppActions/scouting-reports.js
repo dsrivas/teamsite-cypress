@@ -2,11 +2,6 @@ import Header from "../Locators/header.js"
 import Scouting from "../Locators/scouting-page.js"
 
 //Reusable user actions to chain them to form e2e flow
-export const openAnalyticsPage = (page) => {
-        cy.get(Header.HEADER_TAB).contains('Analytics').trigger('mouseover')
-        cy.get('.my-1').contains(page).invoke('show').click({force:true})
-}
-
 export const showScoutingReport = (teamA, teamB) => {
         cy.get(Scouting.SCOUTING_TEAM_SELECTION).first()
             .should('have.class','team-selection-team-selected')

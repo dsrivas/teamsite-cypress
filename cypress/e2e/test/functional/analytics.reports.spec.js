@@ -1,5 +1,5 @@
 import {teamsiteLogin} from "../../../fixtures/AppActions/login.js"
-import {openAnalyticsPage, showScoutingReport, validateScoutingReport} from "../../../fixtures/AppActions/scouting-reports.js"
+import {showScoutingReport, validateScoutingReport} from "../../../fixtures/AppActions/scouting-reports.js"
 import {viewComparisonReport, addMoreStat, removeStat, selectTeamFilter, validateDataWithHeaderEvents} from "../../../fixtures/AppActions/comparison.js"
 
 describe('Analytics -> Comparison check ', () => {
@@ -15,14 +15,14 @@ describe('Analytics -> Comparison check ', () => {
     })
 
     it('User should be able to validate comparison report and add/remove more stats', ()=>{
-        openAnalyticsPage('Comparison')
+        cy.openSubHeader('Analytics','Comparison')
         viewComparisonReport(teams[0],teams[1])
         addMoreStat(stat)
         removeStat(stat)
     })
 
     it('User should be able to validate stat changes based on Possessions events selection', ()=>{
-        openAnalyticsPage('Comparison')
+        cy.openSubHeader('Analytics','Comparison')
         selectTeamFilter('League',league)
         selectTeamFilter('Season',season)
         selectTeamFilter('Competition',competition)
@@ -31,7 +31,7 @@ describe('Analytics -> Comparison check ', () => {
     })
 
     it('User should be able to generate scouting report and validate data with events selection', ()=>{
-        openAnalyticsPage('Scouting Reports')
+        cy.openSubHeader('Analytics','Scouting Reports')
         showScoutingReport(teams[0],teams[1])
         validateScoutingReport("Summary")
     })
