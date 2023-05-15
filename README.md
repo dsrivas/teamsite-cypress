@@ -11,7 +11,7 @@
 ## How to setup the project ?
 
 ### 1. Clone the repo
-    git clone https://github.com/dsrivas/cypress-poc.git
+    git clone https://github.com/dsrivas/teamsite-cypress.git
 
 ### 2. Run this command. This command should install all project dependecies listed in 'Package.json'
     npm install package.json
@@ -30,7 +30,7 @@
     docker build -t chrome-teamsite-cypress .
 
 #### Run container using the above image
-    docker-compose run -e CYPRESS_USERNAME -e CYPRESS_PASSWORD e2e-chrome
+    docker-compose run -e CYPRESS_USERNAME_TEAM -e CYPRESS_PASSWORD_TEAM e2e-chrome
 
 ### Report location
     Path: cypress/reports/mochareports/report.html

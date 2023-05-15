@@ -63,3 +63,8 @@ Cypress.Commands.add("CreateArticle", ()=> {
 Cypress.Commands.add("clickTab", (tabname)=> {
     cy.get('.inline-block').contains(tabname).click({force:true})
 })
+
+Cypress.Commands.add("openSubHeader", (header, subHeader) => {
+        cy.get('.inline-block').contains(header).trigger('mouseover')
+        cy.get('.my-1').contains(subHeader).invoke('show').click({force:true})
+})
