@@ -10,6 +10,7 @@ module.exports = defineConfig({
   defaultCommandTimeout: 10000,
   chromeWebSecurity: false,
   failOnStatusCode: false,
+  downloadsFolder: 'cypress/downloads',
   screenshotsFolder: 'cypress/screenshots',
   reporter: 'cypress-multi-reporters',
   reporterOptions: {

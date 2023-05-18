@@ -16,3 +16,9 @@ export const selectReportType = (reportType) => {
     cy.get(Leaderboards.LEADER_HEADER).find('.ng-value-container').contains('Team').click({force: true})
     cy.get('.ng-option-label').contains(reportType).click()
 }
+
+export const verifyDownloadReports = (format, filename) => {
+    cy.get(Leaderboards.LEADER_EXPORT_BTNS).contains(format).click().wait(2000)
+    const downloadsFolder = Cypress.config("downloadsFolder");
+    cy.wait(4000).readFile(downloadsFolder+"/"+filename+" - NBA 2021-2022 All excluding Exhibitions - Overall - Team Defensive." + format.toLowerCase()).should("exist")
+}
