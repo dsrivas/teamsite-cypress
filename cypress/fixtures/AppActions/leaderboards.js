@@ -14,7 +14,7 @@ export const searchAndSelectTeam = (team) => {
 
 export const selectReportType = (reportType) => {
     cy.get(Leaderboards.LEADER_HEADER).find('.ng-value-container').contains('Team').click({force: true})
-    cy.wait(2000).get('.ng-dropdown-panel-items .ng-option-label').contains(reportType).click()
+    cy.wait(4000).get('.ng-dropdown-panel-items .ng-option-label').contains(reportType).click()
 }
 
 export const verifyDownloadReports = (format, filename) => {
