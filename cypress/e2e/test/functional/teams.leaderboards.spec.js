@@ -1,5 +1,6 @@
 import {teamsiteLogin} from "../../../fixtures/AppActions/login.js"
-import {validateTeamsLeaderboards, searchAndSelectTeam, selectReportType, verifyDownloadReports} from "../../../fixtures/AppActions/leaderboards.js"
+import {validateTeamsLeaderboards, searchAndSelectTeam,
+        selectReportType, verifyDownloadReports, validatePossessionStats} from "../../../fixtures/AppActions/leaderboards.js"
 
 describe('Game Tab overview check', () => {
 
@@ -26,6 +27,8 @@ describe('Game Tab overview check', () => {
         cy.openSubHeader('Leaderboards','Team Leaderboards')
         validateTeamsLeaderboards('Team Offensive')
         selectReportType('Team Defensive')
+        validatePossessionStats(team,'Possession','Poss', '109.6')
+        validatePossessionStats(team,'Total','Poss', '11,399')
         searchAndSelectTeam(team)
       })
 
