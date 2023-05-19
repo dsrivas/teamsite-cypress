@@ -14,14 +14,14 @@ describe('Game Tab overview check', () => {
         teamsiteLogin(Cypress.env('USERNAME_TEAM'),Cypress.env('PASSWORD_TEAM'))
       })
 
-//      it("Leaderboard stats can be downloaded from Teams leaderboard page", () => {
-//        cy.openSubHeader('Leaderboards','Team Leaderboards')
-//        validateTeamsLeaderboards('Team Offensive')
-//        selectReportType('Team Defensive')
-//        format.forEach((item) =>{
-//          verifyDownloadReports(item,filename)
-//        })
-//      })
+      it("Leaderboard stats can be downloaded from Teams leaderboard page", () => {
+        cy.openSubHeader('Leaderboards','Team Leaderboards')
+        validateTeamsLeaderboards('Team Offensive')
+        selectReportType('Team Defensive')
+        format.forEach((item) =>{
+          verifyDownloadReports(item,filename)
+        })
+      })
 
       it("Stats can be viewed under Team leaderboards", () => {
         cy.openSubHeader('Leaderboards','Team Leaderboards')
