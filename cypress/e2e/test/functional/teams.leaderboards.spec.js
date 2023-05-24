@@ -5,7 +5,7 @@ import {validateLeaderboardsPage, searchAndSelect,
 describe('Leaderboards Tab overview check', () => {
 
       const team = 'Golden State Warriors'
-      const player = 'Owen Chambers'
+      const player = 'Precious Achiuwa'
       const filename = 'Leaderboards'
       const format = ["XLSX","CSV"]
 
@@ -46,8 +46,8 @@ describe('Leaderboards Tab overview check', () => {
         cy.openSubHeader('Leaderboards','Player Leaderboards')
         validateLeaderboardsPage('Player Offensive')
         selectReportType('Player Defensive')
-        validatePossessionStats(player,'Possession','Poss', '0.8')
-        validatePossessionStats(player,'Total','Poss', '10')
+        validatePossessionStats(player,'Possession','Poss', '10.0')
+        validatePossessionStats(player,'Total','Poss', '769')
         searchAndSelect('Player',player)
       })
 

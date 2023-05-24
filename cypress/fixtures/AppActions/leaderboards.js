@@ -29,7 +29,7 @@ export const validatePossessionStats = (team, type, stat, value) => {
     cy.get(Leaderboards.LEADER_SEARCH_BOX).clear({force:true,waitForAnimations: true}).type(team)
     if(type === 'Total'){
         cy.get('.toggle-root').contains('Possessions:').then(($elem) =>{
-           cy.wrap($elem).parent().find('.ts-toggle-slider').click()
+           cy.wrap($elem).parent().find('.ts-toggle-slider').click({force:true})
         })
     }
     cy.contains("th",stat)
