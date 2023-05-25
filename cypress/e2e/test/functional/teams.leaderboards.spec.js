@@ -1,10 +1,11 @@
 import {teamsiteLogin} from "../../../fixtures/AppActions/login.js"
-import {validateTeamsLeaderboards, searchAndSelectTeam,
+import {validateLeaderboardsPage, searchAndSelect,
         selectReportType, verifyDownloadReports, validatePossessionStats} from "../../../fixtures/AppActions/leaderboards.js"
 
-describe('Game Tab overview check', () => {
+describe('Leaderboards Tab overview check', () => {
 
       const team = 'Golden State Warriors'
+      const player = 'Precious Achiuwa'
       const filename = 'Leaderboards'
       const format = ["XLSX","CSV"]
 
@@ -16,7 +17,7 @@ describe('Game Tab overview check', () => {
 
       it("Leaderboard stats can be downloaded from Teams leaderboard page", () => {
         cy.openSubHeader('Leaderboards','Team Leaderboards')
-        validateTeamsLeaderboards('Team Offensive')
+        validateLeaderboardsPage('Team Offensive')
         selectReportType('Team Defensive')
         format.forEach((item) =>{
           verifyDownloadReports(item,filename)
@@ -25,11 +26,29 @@ describe('Game Tab overview check', () => {
 
       it("Stats can be viewed under Team leaderboards", () => {
         cy.openSubHeader('Leaderboards','Team Leaderboards')
-        validateTeamsLeaderboards('Team Offensive')
+        validateLeaderboardsPage('Team Offensive')
         selectReportType('Team Defensive')
         validatePossessionStats(team,'Possession','Poss', '109.6')
         validatePossessionStats(team,'Total','Poss', '11,399')
-        searchAndSelectTeam(team)
+        searchAndSelect('Team',team)
+      })
+
+      it("Leaderboard stats can be downloaded from Players leaderboard page", () => {
+        cy.openSubHeader('Leaderboards','Player Leaderboards')
+        validateLeaderboardsPage('Player Offensive')
+        selectReportType('Player Defensive')
+        format.forEach((item) =>{
+           verifyDownloadReports(item,filename)
+        })
+      })
+
+      it("Stats can be viewed under Player leaderboards", () => {
+        cy.openSubHeader('Leaderboards','Player Leaderboards')
+        validateLeaderboardsPage('Player Offensive')
+        selectReportType('Player Defensive')
+        validatePossessionStats(player,'Possession','Poss', '10.0')
+        validatePossessionStats(player,'Total','Poss', '769')
+        searchAndSelect('Player',player)
       })
 
 })
