@@ -9,14 +9,14 @@ export const selectEvent = (event) => {
 
 export const selectDivision = (division) => {
         cy.get(Grassroots.GRASS_EVENT).contains('Division:').then((elem) => {
-            cy.wrap(elem).get('.ng-select-searchable').click({multiple:true})
+            cy.wrap(elem).get('.ng-select-searchable').click({force:true})
         })
         cy.wait(3000).get(Grassroots.GRASS_EVENT_OPTIONS).contains(division).click({force: true})
 }
 
 export const selectTeam = (team) => {
         cy.get(Grassroots.GRASS_EVENT).contains('Team:').then((elem) => {
-              cy.wrap(elem).get('.ng-select-searchable').click({multiple:true})
+              cy.wrap(elem).get('.ng-select-searchable').click({force:true})
         })
         cy.wait(3000).get(Grassroots.GRASS_EVENT_OPTIONS).contains(team).click({force: true})
 }
