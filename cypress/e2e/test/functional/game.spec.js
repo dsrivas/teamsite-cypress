@@ -5,7 +5,7 @@ import {selectGame, validateTabInGameDetails, validateDataInTab, clickTeamFromHe
 
 describe('Game Tab overview check', () => {
 
-      const teams = ['Golden State Warriors','New Orleans Pelicans']
+      const teams = ['New Orleans Pelicans','Golden State Warriors']
       const tabs = ['Extended Box Score','Play Types','Play by Play','Game Breakdown','Shot Chart','Lineups']
       const player = 'Jordan Poole '
       const clips = ['All Clips','All Possessions','Full Game Video']

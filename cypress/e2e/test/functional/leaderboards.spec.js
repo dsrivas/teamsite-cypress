@@ -29,7 +29,7 @@ describe('Leaderboards Tab overview check', () => {
         validateLeaderboardsPage('Team Offensive')
         selectReportType('Team Defensive')
         validatePossessionStats(team,'Possession','Poss', '109.6')
-        validatePossessionStats(team,'Total','Poss', '11,399')
+        validatePossessionStats(team,'Total','Poss', '10,933')
         searchAndSelect('Team',team)
       })
 
@@ -46,8 +46,8 @@ describe('Leaderboards Tab overview check', () => {
         cy.openSubHeader('Leaderboards','Player Leaderboards')
         validateLeaderboardsPage('Player Offensive')
         selectReportType('Player Defensive')
-        validatePossessionStats(player,'Possession','Poss', '10.0')
-        validatePossessionStats(player,'Total','Poss', '769')
+        validatePossessionStats(player,'Possession','Poss', '8.4')
+        validatePossessionStats(player,'Total','Poss', '454')
         searchAndSelect('Player',player)
       })
 

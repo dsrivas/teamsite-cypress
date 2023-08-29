@@ -33,6 +33,6 @@ describe('Player tab overview check', () => {
       it("Should be able to search and play clip from Players page", () => {
          cy.clickTab('Player')
          playerSearch(player)
-         selectValidateClip('132')
+         selectValidateClip('14')
       })
  })
