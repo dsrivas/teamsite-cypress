@@ -2,7 +2,7 @@ import {teamsiteLogin} from "../../../fixtures/AppActions/login.js"
 import {clickTab} from "../../../support/commands.js"
 import {selectEvent, selectDivision, selectTeam, validatePlayer, selectPlayer, validatePlayerPage} from "../../../fixtures/AppActions/grassroots.js"
 
-describe('Leaderboards Tab overview check', () => {
+describe('Grassroots Tab overview check', () => {
 
       var playerStat
       var team
