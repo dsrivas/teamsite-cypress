@@ -22,7 +22,7 @@ export const selectReportType = (reportType) => {
 export const verifyDownloadReports = (format, filename) => {
     cy.get(Leaderboards.LEADER_EXPORT_BTNS).contains(format).click().wait(2000)
     const downloadsFolder = Cypress.config("downloadsFolder");
-    cy.wait(4000).readFile(downloadsFolder+"/"+filename+" - NBA 2021-2022 All excluding Exhibitions - Overall - Team Defensive." + format.toLowerCase()).should("exist")
+    cy.wait(4000).readFile(downloadsFolder+"/"+filename+" - NBA 2022-2023 All excluding Exhibitions - Overall - Team Defensive." + format.toLowerCase()).should("exist")
 }
 
 export const validatePossessionStats = (team, type, stat, value) => {
